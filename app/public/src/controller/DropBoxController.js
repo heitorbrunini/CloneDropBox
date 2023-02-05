@@ -1,3 +1,6 @@
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set } from "firebase/database";
+
 class DropBoxController {
 
     constructor() {
@@ -10,7 +13,27 @@ class DropBoxController {
         this.timeleftEL = this.snakeBarEL.querySelector('.timeleft');
         this.listFiles = document.querySelector('#list-of-files-and-directories')
 
+        this.connectFireBase();
         this.initEvents();
+    }
+
+    connectFireBase() {
+        let firebaseConfig = {
+            apiKey: "AIzaSyBEMzBhQfKz33iUDp1hFbfFSR4gBIKNM2M",
+            authDomain: "dropboxclone-b9.firebaseapp.com",
+            databaseURL: "https://dropboxclone-b9-default-rtdb.firebaseio.com",
+            projectId: "dropboxclone-b9",
+            storageBucket: "dropboxclone-b9.appspot.com",
+            messagingSenderId: "834630714322",
+            appId: "1:834630714322:web:6920ef54e2e55a0483be0b",
+            measurementId: "G-605RL6HC66"
+        };
+
+        // Initialize Firebase
+        const fireBase = initializeApp(firebaseConfig);
+        const DataBase = getDatabase();
+        const reference = ref(db, 'files/');
+
     }
 
     initEvents() {
@@ -280,6 +303,14 @@ class DropBoxController {
                 ${this.getFileIconView(file)}
                 <div class="name text-center">${file.name}</div>
             </li>`;
+
+    }
+
+    uploadFiles(file) {
+
+        set(reference, {
+            file
+        });
 
     }
 }
