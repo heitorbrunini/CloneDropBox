@@ -1,6 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
-
 class DropBoxController {
 
     constructor() {
@@ -18,7 +15,7 @@ class DropBoxController {
     }
 
     connectFireBase() {
-        let firebaseConfig = {
+        const firebaseConfig = {
             apiKey: "AIzaSyBEMzBhQfKz33iUDp1hFbfFSR4gBIKNM2M",
             authDomain: "dropboxclone-b9.firebaseapp.com",
             databaseURL: "https://dropboxclone-b9-default-rtdb.firebaseio.com",
@@ -28,11 +25,9 @@ class DropBoxController {
             appId: "1:834630714322:web:6920ef54e2e55a0483be0b",
             measurementId: "G-605RL6HC66"
         };
-
-        // Initialize Firebase
         const fireBase = initializeApp(firebaseConfig);
         const DataBase = getDatabase();
-        const reference = ref(db, 'files/');
+        const reference = ref(DataBase, 'files/');
 
     }
 
