@@ -11,9 +11,6 @@ var { getDatabase } = require('firebase/database');
 var app = express();
 
 
-app.use(initializeApp);
-app.use(getDatabase);
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

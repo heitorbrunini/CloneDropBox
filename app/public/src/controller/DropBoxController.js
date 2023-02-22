@@ -1,3 +1,6 @@
+var { initializeApp } = require('firebase/app')
+var { getDatabase } = require('firebase/database');
+
 class DropBoxController {
 
     constructor() {
@@ -25,7 +28,7 @@ class DropBoxController {
             appId: "1:834630714322:web:6920ef54e2e55a0483be0b",
             measurementId: "G-605RL6HC66"
         };
-        
+
         var fireBase = initializeApp(firebaseConfig);
         var DataBase = getDatabase();
         var reference = ref(DataBase, 'files/');
